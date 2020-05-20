@@ -16,8 +16,12 @@ import io.app.dto.OrderPlaced;
 import io.app.dto.SuccessResponse;
 import io.app.model.PurchaseOrder;
 import io.app.service.IPurhasedOrderService;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMethod;
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*", allowedHeaders = "*",methods = {RequestMethod.DELETE,
+		                 RequestMethod.GET,RequestMethod.PUT,RequestMethod.POST})
 public class OrderResource {
 
 	@Autowired
