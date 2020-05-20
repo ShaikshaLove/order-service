@@ -14,11 +14,11 @@ public class OrderIdGenerator implements IdentifierGenerator {
 
 	@Override
 	public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
-		String str="S3O88";
+		String str="S3O202022";
 		Connection con= session.connection();
 		try {
 			Statement stmt=con.createStatement();
-			ResultSet rs=stmt.executeQuery("select hibernate_sequence.nextval from dual");
+			ResultSet rs=stmt.executeQuery("SELECT nextval('hibernate_sequence')");
 			rs.next();
 			str=str+rs.getString(1);
 		} catch (SQLException e) {
