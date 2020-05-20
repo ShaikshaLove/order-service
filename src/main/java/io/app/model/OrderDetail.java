@@ -6,15 +6,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class OrderDetail {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonIgnore
 	private Long orderDetailId;
-	private Long riceTypeId;
+	private String productId;
 	private Double cost;
 	private int quantity;
+	
 	public OrderDetail() {
 		super();
 	}
@@ -23,12 +28,6 @@ public class OrderDetail {
 	}
 	public void setOrderDetailId(Long orderDetailId) {
 		this.orderDetailId = orderDetailId;
-	}
-	public Long getRiceTypeId() {
-		return riceTypeId;
-	}
-	public void setRiceTypeId(Long riceTypeId) {
-		this.riceTypeId = riceTypeId;
 	}
 	public Double getCost() {
 		return cost;
@@ -42,4 +41,11 @@ public class OrderDetail {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	public String getProductId() {
+		return productId;
+	}
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+	
 }
